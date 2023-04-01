@@ -1,5 +1,8 @@
-use fixed::{types, FixedI32};
+use fixed::FixedI32;
+use fixed::types::extra::U16;
 
+/// 32-bit fixed-point integer with 16-bit fractional part
+pub type Fixed16 = FixedI32<U16>;
 /// A quaternion is a mathematical way of representing angles.
 /// These are not very intuitive, but this is what the hardware returns.
 /// You should convert these to `YawPitchRoll` before doing further logic on them.
@@ -8,10 +11,10 @@ use fixed::{types, FixedI32};
 #[derive(Copy, Clone, Debug)]
 #[allow(missing_docs)]
 pub struct Quaternion {
-    pub w: FixedI32<types::extra::U30>,
-    pub x: FixedI32<types::extra::U30>,
-    pub y: FixedI32<types::extra::U30>,
-    pub z: FixedI32<types::extra::U30>,
+    pub w: Fixed16,
+    pub x: Fixed16,
+    pub y: Fixed16,
+    pub z: Fixed16,
 }
 
 impl Quaternion {
@@ -19,13 +22,13 @@ impl Quaternion {
         assert_eq!(bytes.len(), 16);
 
         let w =
-            FixedI32::<types::extra::U30>::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
+            Fixed16::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
         let x =
-            FixedI32::<types::extra::U30>::from_be_bytes([bytes[4], bytes[5], bytes[6], bytes[7]]);
-        let y = FixedI32::<types::extra::U30>::from_be_bytes([
+            Fixed16::from_be_bytes([bytes[4], bytes[5], bytes[6], bytes[7]]);
+        let y = Fixed16::from_be_bytes([
             bytes[8], bytes[9], bytes[10], bytes[11],
         ]);
-        let z = FixedI32::<types::extra::U30>::from_be_bytes([
+        let z = Fixed16::from_be_bytes([
             bytes[12], bytes[13], bytes[14], bytes[15],
         ]);
         Quaternion { w, x, y, z }
