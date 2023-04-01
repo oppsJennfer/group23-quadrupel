@@ -1,0 +1,2 @@
+cargo:rustc-link-search=/home/zhanhe/tudelft-quadrupel/target/thumbv6m-none-eabi/debug/build/nrf51-hal-1d1ba0d813736988/out
+cargo:rerun-if-changed=build.rs

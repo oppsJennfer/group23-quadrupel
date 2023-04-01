@@ -1,0 +1,3 @@
+cargo:rustc-link-search=/home/zhanhe/tudelft-quadrupel/target/thumbv6m-none-eabi/debug/build/nrf51-pac-87b0804cc394e6ed/out
+cargo:rerun-if-changed=device.x
+cargo:rerun-if-changed=build.rs

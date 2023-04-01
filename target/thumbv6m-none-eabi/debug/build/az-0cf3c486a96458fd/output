@@ -1,0 +1,6 @@
+$ mkdir -p "/home/zhanhe/tudelft-quadrupel/target/thumbv6m-none-eabi/debug/build/az-0cf3c486a96458fd/out/try_track_caller"
+$ cd "/home/zhanhe/tudelft-quadrupel/target/thumbv6m-none-eabi/debug/build/az-0cf3c486a96458fd/out/try_track_caller"
+$ printf '%s' "// try_tra"... > "/home/zhanhe/tudelft-quadrupel/target/thumbv6m-none-eabi/debug/build/az-0cf3c486a96458fd/out/try_track_caller/try_track_caller.rs"
+$ cd "/home/zhanhe/tudelft-quadrupel/target/thumbv6m-none-eabi/debug/build/az-0cf3c486a96458fd/out/try_track_caller" && "/home/zhanhe/.cargo/bin/rustc" "try_track_caller.rs" "--emit=dep-info,metadata" >& /dev/null
+cargo:rustc-cfg=track_caller
+$ rm -r "/home/zhanhe/tudelft-quadrupel/target/thumbv6m-none-eabi/debug/build/az-0cf3c486a96458fd/out/try_track_caller"
